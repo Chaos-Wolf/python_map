@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 import pm
+import random
 s = []
 #just for my sanity so the arrays in the terminal dont look so crazy
 def clean_print(x):
@@ -47,7 +48,8 @@ def randsystem(size):
 	return(y)
 #what the button to make a random starsystem talks to
 def randouter():
-	x = randsystem(10)
+	sys_amount = random.choice(range(10,20))
+	x = randsystem(sys_amount)
 	txt_edit.delete(1.0, tk.END)
 	place = 0
 	for a in x:
@@ -61,6 +63,7 @@ def randouter():
 	global s
 	s = x
 	clean_print(s)
+	pm.disall(s)
 
 #increases the value of the XYZ cordinates
 def increase(buttonid):
